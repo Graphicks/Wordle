@@ -4,6 +4,7 @@ print("\033[1;34;40mWordle 2022")
 ######### ---------- VARIABLES
 
 correct_word = generate_word()
+print(correct_word)
 
 guesses = 0
 repeat = True

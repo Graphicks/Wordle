@@ -18,18 +18,19 @@ def checkMatch(correct_word, user_guess, repeat, match_results):
       
       if user_guess[0][i] == correct_word[0][i]:
         word = (f"\033[1;32;40m{user_guess[0][i]}")
-        match_results.append(word)
+        
         
         
 
       elif user_guess[0][i] in correct_word[0]:
         word = (f"\033[1;33;40m{user_guess[0][i]}")
-        match_results.append(word)
+        
         
   
       else:
         word =(f"\033[1;31;40m{user_guess[0][i]}")
-        match_results.append(word)
+
+      match_results.append(word)
         
     str1 = ''.join(match_results) 
     match_results.clear()
