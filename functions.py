@@ -7,9 +7,9 @@ def generate_word():
   return correct_word
 
 
-def checkMatch(correct_word, user_guess, repeat, match_results):
+def checkMatch(correct_word, user_guess, repeat, match_results, guesses):
   if user_guess[0] == correct_word[0]:
-    print(f"\033[1;32;40m{user_guess[0]} you guessed correct!")
+    print(f"\033[1;32;40m{user_guess[0]} is the correct word!")
     repeat = False
     
 
@@ -34,7 +34,8 @@ def checkMatch(correct_word, user_guess, repeat, match_results):
         
     str1 = ''.join(match_results) 
     match_results.clear()
-    print(str1)
+    print(f"\n{str1}")
+    print(f"\033[1;37;40m{guesses} guesses reamin!")
     
     
   return repeat

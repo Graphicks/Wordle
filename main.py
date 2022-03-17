@@ -4,9 +4,8 @@ print("\033[1;34;40mWordle 2022")
 ######### ---------- VARIABLES
 
 correct_word = generate_word()
-print(correct_word)
 
-guesses = 0
+guesses = 6
 repeat = True
 
 user_guess = []
@@ -15,19 +14,21 @@ match_results = [] #### basically joins all the check match iterations so its no
 
 
 # --------------- RUN GAME
-while guesses <= 5 and repeat == True:
+while guesses >= 0 and repeat == True:
   
-  guess = input("\033[1;34;40mGuess the word:  \033[1;37;40m").lower()
-  
-  
+  guess = input("\033[1;34;40m\nGuess the word:  \033[1;37;40m").lower()
 
-  if len(guess) == 5:
+  if len(guess) == 5 and guesses > 0:
     
+    guesses-=1 
     user_guess.append(guess)
-    repeat = checkMatch(correct_word, user_guess, repeat, match_results)
+    repeat = checkMatch(correct_word, user_guess, repeat, match_results, guesses)
     user_guess.pop(0)
-    
-    guesses+=1 
-  else:
+   
+  elif len(guess) != 5:
     print("\033[1;31;40m\nPlease input a 5 letter word!\n")
+
+  else:
+    print(f"\nNice try! The correct word was {''.join(correct_word)}!")
+    repeat = False
   
